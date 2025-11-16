@@ -1,41 +1,40 @@
-import React from 'react'
+import React from 'react';
 
 function Card({ image, name, description }) {
   return (
-    <div className="flex justify-center">
-      <div className="flex flex-col border rounded-2xl p-4 gap-4 shadow-lg bg-white
-                      transform transition duration-300 hover:scale-105 hover:brightness-105">
-        
-        {/* Small profile section */}
-        <div className="flex items-center gap-3">
-          <img 
-            src={image} 
-            alt={name} 
-            className="w-12 h-12 rounded-full object-cover border shadow-sm"
-          />
-          <div>
-            <h4 className="text-lg font-semibold text-gray-800">{name}</h4>
-            <p className="text-gray-600 text-sm">{description}</p>
-          </div>
-        </div>
+    <div className="flex flex-col w-80 overflow-hidden rounded-2xl shadow-lg bg-white 
+                    transform transition-all duration-300 hover:scale-105 
+                    hover:shadow-2xl hover:bg-gradient-to-br from-blue-50 to-blue-100">
 
-        {/* Big image */}
-        <img 
-          src={image} 
-          alt={name} 
-          className="w-full h-48 object-cover rounded-xl shadow-md"
+      {/* Top: profile section */}
+      <div className="flex items-center gap-4 p-4">
+        <img
+          src={image}
+          alt={name}
+          className="w-12 h-12 rounded-full object-cover border-2 border-gray-200 shadow-sm"
         />
-
-        {/* Footer */}
-        <div className="flex justify-between text-gray-700 text-sm font-medium pt-2">
-          <p className="hover:text-blue-500 cursor-pointer">Like</p>
-          <p className="hover:text-blue-500 cursor-pointer">Comment</p>
-          <p className="hover:text-blue-500 cursor-pointer">Share</p>
+        <div>
+          <h4 className="text-lg font-semibold text-gray-800">{name}</h4>
+          <p className="text-gray-500 text-sm">{description}</p>
         </div>
-
       </div>
+
+      {/* Large main image */}
+      <img
+        src={image}
+        alt={name}
+        className="w-full h-48 object-cover"
+      />
+
+      {/* Footer: Like / Comment / Share */}
+      <div className="flex justify-around items-center p-3 border-t border-gray-200 text-gray-600 font-medium text-sm">
+        <button className="hover:text-blue-600 transition-colors">Like</button>
+        <button className="hover:text-blue-600 transition-colors">Comment</button>
+        <button className="hover:text-blue-600 transition-colors">Share</button>
+      </div>
+
     </div>
-  )
+  );
 }
 
-export default Card
+export default Card;
